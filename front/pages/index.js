@@ -3,12 +3,19 @@ import { Form, Input, Button, Card, Icon, Avatar } from 'antd';
 const dummy = {
     isLoggedIn: true,
     imagePaths: [],
-    mainPosts: [],
+    mainPosts: [{
+        User: {
+            id: 1,
+            nickname: '호근표',
+        },
+        contents: '게시글 첫번쨰',
+        img: 'https://picsum.photos/100',
+    }],
 }
 const Home = () => {
     return (
         <>
-            {dummy.isLoggedIn && <Form encType="multipart/form-data">
+            {dummy.isLoggedIn && <Form style={{ marginBottom: 20 }} encType="multipart/form-data">
                 <Input.TextArea maxLength={140} placeholder="어떤 신기한 일이 있었나요?" />
                 <div>
                     <input type="file" multiple hidden/>
@@ -44,7 +51,7 @@ const Home = () => {
                         <Card.Meta
                             avatar={<Avatar>{c.User.nickname[0]}</Avatar>}
                             title={c.User.nickname}
-                            description={c.content}
+                            description={c.contents}
                         />
                     </Card>
                 )
