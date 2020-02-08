@@ -47,7 +47,7 @@ const AppLayout = ({children}) => {
                     <Col xs={24} md={12}>
                         {children}
                     </Col>
-                    <Col xs={24} md={6}>test</Col>
+                    <Col xs={24} md={6}>pc테스트</Col>
                 </Row>
                 
             </div>
