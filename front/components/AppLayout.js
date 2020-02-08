@@ -24,7 +24,7 @@ const AppLayout = ({children}) => {
                     </Menu.Item>
                 </Menu>
                 
-                <Row>
+                <Row gutter={8}>
                     <Col xs={24} md={6}>
                         {
                             dummy.isLoggedIn ?
