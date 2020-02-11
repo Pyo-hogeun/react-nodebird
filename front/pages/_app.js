@@ -3,8 +3,10 @@ import Head from 'next/head';
 import PropTypes from 'prop-types';
 import withRedux from 'next-redux-wrapper';
 import AppLayout from '../components/AppLayout';
+import { creatStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from '../reducers';
+import { initialState } from '../reducers/user';
 
 const NodeBird = ({ Component, store }) => {
     return (
@@ -24,4 +26,6 @@ NodeBird.propTypes =  {
     Component: PropTypes.elementType,
 };
 
-export default withRedux()(NodeBird);
+export default withRedux((initialState, options) => {
+    const store = creatStore(reducer, initialState);
+})(NodeBird);
