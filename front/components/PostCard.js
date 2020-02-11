@@ -24,7 +24,7 @@ const PostCard = ({ post }) => {
         </Card>
     )
 }
-PostCard.PropTypes = {
+PostCard.propTypes = {
     post : PropTypes.shape({
         user: PropTypes.object,
         content: PropTypes.string,
