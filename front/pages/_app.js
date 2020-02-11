@@ -3,10 +3,9 @@ import Head from 'next/head';
 import PropTypes from 'prop-types';
 import withRedux from 'next-redux-wrapper';
 import AppLayout from '../components/AppLayout';
-import { creatStore } from 'redux';
+import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from '../reducers';
-import { initialState } from '../reducers/user';
 
 const NodeBird = ({ Component, store }) => {
     return (
@@ -24,8 +23,11 @@ const NodeBird = ({ Component, store }) => {
 
 NodeBird.propTypes =  {
     Component: PropTypes.elementType,
+    store: PropTypes.object,
 };
 
 export default withRedux((initialState, options) => {
-    const store = creatStore(reducer, initialState);
+    const store = createStore(reducer, initialState);
+    // 여기에다가 store 커스터마이징
+    return store;
 })(NodeBird);
