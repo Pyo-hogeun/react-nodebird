@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
+import withRedux from 'next-redux-wrapper';
 import AppLayout from '../components/AppLayout';
 import { Provider } from 'react-redux';
 import reducer from '../reducers';
@@ -23,4 +24,4 @@ NodeBird.propTypes =  {
     Component: PropTypes.elementType,
 };
 
-export default NodeBird;
+export default withRedux()(NodeBird);
