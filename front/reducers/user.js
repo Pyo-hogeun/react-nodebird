@@ -6,13 +6,13 @@ export const initialState = {
 export const LOG_IN = 'LOG_IN'; // 액션의 이름
 export const LOG_OUT = 'LOG_OUT';
 
-const loginAction = {
+export const loginAction = {
     type: LOG_IN,
     data: {
         nickname: '표호근',
     }
 };
-const logoutAction = {
+export const logoutAction = {
     type: LOG_OUT,
 
 }
