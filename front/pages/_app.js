@@ -27,10 +27,10 @@ NodeBird.propTypes =  {
 };
 
 export default withRedux((initialState, options) => {
-    const middlewares = [reduxSagaMiddleware, thunkMiddler, loggerMiddleware];
+    const middlewares = [];
     const enhancer = compose(
         applyMiddleware(...middlewares),
-        window.__REDUX_DEVTOOLS_EXTENSION__ !== 'undefined' ? window.__REDUX_DEVTOOLS_EXTENSION__() : (f) => f,
+        !options.isServer && 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION__ !== 'undefined' ? window.__REDUX_DEVTOOLS_EXTENSION__() : (f) => f,
     );
     const store = createStore(reducer, initialState, enhancer);
     return store;
