@@ -1,6 +1,12 @@
 export const initialState = {
     isLoggedIn: false,
-    user: {},
+    user: {
+        nickname: '표호근',
+        Post: [], 
+        Followings: [],
+        Followers: [],
+        isLoggedIn: false,
+    },
 }
 
 export const LOG_IN = 'LOG_IN'; // 액션의 이름

@@ -1,5 +1,12 @@
 export const initialState = {
-    mainPosts: [],
+    mainPosts: [{
+        User: {
+            id: 1,
+            nickname: '호근표',
+        },
+        contents: '게시글 첫번쨰',
+        img: 'https://picsum.photos/100',
+    }],
 };
 
 const ADD_POST = 'ADD_POST';
