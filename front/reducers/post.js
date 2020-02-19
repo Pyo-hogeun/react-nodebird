@@ -7,6 +7,7 @@ export const initialState = {
         contents: '게시글 첫번쨰',
         img: 'https://picsum.photos/100',
     }],
+    imagePaths: [],
 };
 
 const ADD_POST = 'ADD_POST';

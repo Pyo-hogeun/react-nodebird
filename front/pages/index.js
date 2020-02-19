@@ -9,16 +9,16 @@ const Home = () => {
     const dispatch = useDispatch();
     const { isLoggedIn, user } = useSelector(state => state.user);
     const { mainPosts } = useSelector(state => state.post);
-    console.log(user);
+    // console.log(user);
     useEffect(()=>{ 
-        dispatch(loginAction);
-        dispatch(logoutAction);
-        dispatch(loginAction);
+        // dispatch(loginAction);
+        // dispatch(logoutAction);
+        // dispatch(loginAction);
     }, []);
 
     return (
         <div>
-            {user ? <div>로그인했습니다: { user.nickname }</div> : <div>로그아웃했습니다</div>}
+            {/* {user ? <div>로그인했습니다: { user.nickname }</div> : <div>로그아웃했습니다</div>} */}
             {isLoggedIn && <PostForm />}
             {mainPosts.map((c) => {
                 return(
