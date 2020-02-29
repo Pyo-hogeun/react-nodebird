@@ -1,5 +1,5 @@
-import { all } from 'redux-saga/effects';
-import { LOG_IN, LOGIN_IN_SUCCESS, LOGIN_IN_FAILURE } from '../reducers/user';
+import { all, fork, put, takeLatest, call } from 'redux-saga/effects';
+import { LOG_IN, LOG_IN_SUCCESS, LOG_IN_FAILURE } from '../reducers/user';
 
 function loginAPI(){
 
@@ -9,12 +9,12 @@ function* login(){
     try{
         yield call(loginAPI);
         yield put({
-            type: LOGIN_IN_SUCCESS
+            type: LOG_IN_SUCCESS
         })
     } catch (e){
         console.error(e);
         yield put({
-            type: LOGIN_IN_FAILURE
+            type: LOG_IN_FAILURE
         })
     }
 }
