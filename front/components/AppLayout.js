@@ -2,9 +2,9 @@ import React from 'react';
 import { Menu, Input, Row, Col, Card, Avatar } from 'antd';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
+import { useSelector } from 'react-redux';
 import LoginForm from './LoginForm';
 import UserProfile from './UserProfile';
-import { useSelector } from 'react-redux';
 
 const AppLayout = ({children}) => {
     const { isLoggedIn } = useSelector(state => state.user);
