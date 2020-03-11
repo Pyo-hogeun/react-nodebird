@@ -7,11 +7,15 @@ export const initialState = {
         },
         content: '게시글 첫번쨰',
         img: 'https://picsum.photos/300',
+        Comments: [],
     }],
     imagePaths: [],
     addPostErrorReason: '',
     isAddingPost: false,
     postAdded: false,
+    isAddingComment: false,
+    addCommentErrorReason: '',
+    commentAdded: false,
 };
 
 export const LOAD_MAIN_POSTS_REQUEST = 'LOAD_MAIN_POSTS_REQUEST';
@@ -69,6 +73,15 @@ const dummyPost = {
     Comments: [],
 }
 
+const dummyComment = {
+    id: 1,
+    User: {
+        id: 1,
+        nickname: '우렁스',
+    },
+    createAt: new Date(),
+    content: '이것은 더미더미',
+};
 
 
 const reducer = ( state = initialState, action) => {
@@ -96,6 +109,35 @@ const reducer = ( state = initialState, action) => {
                 postAdded: false,
                 addPostErrorReason: action.error,
             };
+        }
+        case ADD_COMMENT_REQUEST: {
+            return {
+                ...state,
+                isAddingComment: true,
+                addCommentErrorReason: '',
+                commentAdded: false,
+            }
+        }
+        case ADD_COMMENT_SUCCESS: {
+            const postIndex = state.mainPosts.findIndex(v => v.id === action.data.postId);
+            const post = state.mainPosts[postIndex];
+            const Comments = [...post.Comments, dummyComment];
+            const mainPosts = [...state.mainPosts];
+            mainPosts[postIndex] = { ...post, Comments };
+
+            return {
+                ...state,
+                isAddingComment: false,
+                mainPosts,
+                commentAdded: true,
+            }
+        }
+        case ADD_COMMENT_FAILURE: {
+            return {
+                ...state,
+                isAddingComment: false,
+                addCommentErrorReason: action.error,
+            }
         }
         default: {
             return{

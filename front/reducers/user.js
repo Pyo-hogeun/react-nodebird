@@ -17,6 +17,7 @@ export const initialState = {
     followingList: [], //팔로잉 리스트
     followerList: [], //팔로워 리스트
     userInfo: null, //남의 정보
+    commentText: '',
 }
 
 export const SIGN_UP_REQUEST = 'SIGN_UP_REQUEST';
